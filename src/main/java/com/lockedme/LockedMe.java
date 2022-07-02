@@ -22,13 +22,14 @@ public class LockedMe {
 	//Creating static function
 	public static void showMenu() {
 		System.out.println("                  ________________________");
-		System.out.println("\t\tWelcome to Lockme");
+		System.out.println("\t\tWelcome to Lockedme.com");
 		System.out.println("------------------------------------------");
 		System.out.println("\t\t1. Display all the files");
 		System.out.println("\t\t2. Add a New File");
 		System.out.println("\t\t3. Delete a File");
 		System.out.println("\t\t4. Search a File");
 		System.out.println("\t\t5. Exit");
+		System.out.println("\t\t Developer Details: Shriram Bhagwatwar");
 		System.out.println("____________________________________");
 	}
 	/**
@@ -42,8 +43,8 @@ public class LockedMe {
 			if (listOfFiles.length == 0) {
 				System.out.println("Files are not present in the directory");
 			} else {
-			for (var l : listOfFiles) {
-				System.out.println("File: " + l.getName());
+			for (var file : listOfFiles) {
+				System.out.println("File: " + file.getName());
 			}
 		}
 		} catch (Exception ex) {
@@ -75,7 +76,7 @@ public class LockedMe {
 	/**
 	* This method will delete the files to be deleted in the directory
 	*/
-	public static void deletefiles() {
+	public static void deleteFiles() {
 	// Creating a Try Catch block
 	try {
 	String fileName;
@@ -98,27 +99,27 @@ public class LockedMe {
 	public static void searchFiles() {
 	// Creating a try-catch block 
 	try {
-	String fileName;
-	System.out.println("Enter the file name to be searched: ");
-	fileName = readScanner.nextLine();
-	File folder = new File(projectFilesPath);
-	File[] listOfFiles = folder.listFiles();
-	LinkedList<String> filenames = new LinkedList<String>();
-	for (var l : listOfFiles) {
-		filenames.add(l.getName());
-	}
-	if (filenames.contains(fileName)) {
-		System.out.println("File is Available");
-	} else {
-		System.out.println("File not available in the directory you're searching.");
-	}
+		String fileName;
+		System.out.println("Enter the file name to be searched: ");
+		fileName = readScanner.nextLine();
+		File folder = new File(projectFilesPath);
+		File[] listOfFiles = folder.listFiles();
+		LinkedList<String> filenames = new LinkedList<String>();
+		for (var list : listOfFiles) {
+			filenames.add(list.getName());
+		}
+		if (filenames.contains(fileName)) {
+			System.out.println("File is Available");
+		} else {
+			System.out.println("File not available in the directory you're searching.");
+		}
 	} catch (Exception Ex) {
-		System.out.println(errorMessage);
-	}
+			System.out.println(errorMessage);
+		}
 	}
 	/**
 	* Main Method, where all the functions are being called
-	* @param args
+	
 	*/
 	public static void main(String[] args) {
 	// Using Do-while loop so that this application runs repeatedly
@@ -135,7 +136,7 @@ public class LockedMe {
 			createFiles();
 			break;
 		case 3:
-			deletefiles();
+			deleteFiles();
 			break;
 		case 4:
 			searchFiles();
